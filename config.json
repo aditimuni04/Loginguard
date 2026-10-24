@@ -1,0 +1,45 @@
+{
+  // Business hours (UTC, 24h). Successful logins outside [start, end) raise off_hours_login.
+  // For night shifts use start > end, e.g. 22 -> 6.
+  "business_hours": { "start": 7, "end": 20 },
+
+  "rules": {
+    // N failures by one account from one IP inside the window.
+    "brute_force":       { "enabled": true, "max_failures": 5,  "window_seconds": 300, "weight": 40 },
+    // One IP failing against many different accounts.
+    "password_spraying": { "enabled": true, "distinct_users": 6, "window_seconds": 600, "weight": 50 },
+    // One account being attacked from many different IPs.
+    "distributed_attack":{ "enabled": true, "distinct_ips": 4,  "window_seconds": 600, "weight": 45 },
+    // A success right after a streak of failures (possible account takeover).
+    "success_after_failures": { "enabled": true, "min_failures": 4, "window_seconds": 600, "cooldown_seconds": 600, "weight": 45 },
+    "off_hours_login":   { "enabled": true, "cooldown_seconds": 86400, "weight": 15 },
+    // Activity from the blacklist below; gap_seconds splits separate sessions.
+    "blacklisted_ip":    { "enabled": true, "gap_seconds": 3600, "weight": 35 }
+  },
+
+  // IPv4 addresses or CIDR ranges (documentation ranges used as examples).
+  "blacklist": ["203.0.113.0/24", "198.51.100.0/24", "192.0.2.77"],
+
+  // Your own high-risk patterns: regex on the username + outcome + threshold.
+  "custom_patterns": [
+    { "name": "privileged_account_failures", "username_regex": "^(admin|root|administrator)$",
+      "outcome": "failure", "threshold": 3, "window_seconds": 300, "weight": 55 }
+  ],
+
+  "scoring": {
+    "privileged_regex": "^(admin|root|administrator)$",
+    "privileged_bonus": 10,
+    "blacklist_bonus": 10,
+    "blacklist_success_bonus": 25,
+    "volume_step": 2,
+    "volume_cap": 20,
+    "campaign_bonus_per_rule": 5,
+    "campaign_bonus_max": 15,
+    "campaign_window_seconds": 86400,
+    // Shared addresses (office NAT, loopback) must not link unrelated users into one campaign.
+    "campaign_ignore_cidrs": ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "127.0.0.0/8", "169.254.0.0/16"]
+  },
+
+  // Minimum score for each band; below "medium" is Low.
+  "severity": { "medium": 30, "high": 60, "critical": 80 }
+}

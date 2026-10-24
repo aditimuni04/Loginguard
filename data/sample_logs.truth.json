@@ -1,0 +1,317 @@
+[
+  {
+    "actor": "194.155.224.181",
+    "end": 1790814272,
+    "ip": "194.155.224.181",
+    "rule": "off_hours_login",
+    "start": 1790814272,
+    "type": "off_hours_login",
+    "user": "tara.moore2"
+  },
+  {
+    "actor": "45.232.59.34",
+    "end": 1790826052,
+    "ip": "45.232.59.34",
+    "rule": "off_hours_login",
+    "start": 1790826052,
+    "type": "off_hours_login",
+    "user": "raj.bose"
+  },
+  {
+    "actor": "185.163.53.28",
+    "end": 1790828662,
+    "ip": "185.163.53.28",
+    "rule": "off_hours_login",
+    "start": 1790828662,
+    "type": "off_hours_login",
+    "user": "emma.rao"
+  },
+  {
+    "actor": "203.0.113.192",
+    "end": 1790872574,
+    "ip": "203.0.113.192",
+    "rule": "blacklisted_ip",
+    "start": 1790871555,
+    "type": "blacklisted_ip",
+    "user": ""
+  },
+  {
+    "actor": "141.84.46.205",
+    "end": 1790892450,
+    "ip": "141.84.46.205",
+    "rule": "off_hours_login",
+    "start": 1790892450,
+    "type": "off_hours_login",
+    "user": "tara.shah"
+  },
+  {
+    "actor": "141.60.178.46",
+    "end": 1790913823,
+    "ip": "",
+    "rule": "custom:privileged_account_failures",
+    "start": 1790913795,
+    "type": "privileged_attack",
+    "user": "admin"
+  },
+  {
+    "actor": "185.210.56.21",
+    "end": 1790933754,
+    "ip": "",
+    "rule": "custom:privileged_account_failures",
+    "start": 1790933674,
+    "type": "privileged_attack",
+    "user": "root"
+  },
+  {
+    "actor": "91.70.244.217",
+    "end": 1790989655,
+    "ip": "91.70.244.217",
+    "rule": "off_hours_login",
+    "start": 1790989655,
+    "type": "off_hours_login",
+    "user": "liam.patel"
+  },
+  {
+    "actor": "141.216.180.74",
+    "end": 1791001314,
+    "ip": "141.216.180.74",
+    "rule": "password_spraying",
+    "start": 1791000156,
+    "type": "password_spraying",
+    "user": ""
+  },
+  {
+    "actor": "141.114.191.11",
+    "end": 1791005101,
+    "ip": "141.114.191.11",
+    "rule": "brute_force",
+    "start": 1791004830,
+    "type": "brute_force",
+    "user": "neha.brown"
+  },
+  {
+    "actor": "194.151.49.193",
+    "end": 1791015889,
+    "ip": "194.151.49.193",
+    "rule": "brute_force",
+    "start": 1791011536,
+    "type": "brute_force",
+    "user": "mia.rao"
+  },
+  {
+    "actor": "45.16.192.235",
+    "end": 1791031244,
+    "ip": "45.16.192.235",
+    "rule": "brute_force",
+    "start": 1791031173,
+    "type": "brute_force",
+    "user": "tara.brown"
+  },
+  {
+    "actor": "45.16.192.235",
+    "end": 1791031247,
+    "ip": "45.16.192.235",
+    "rule": "success_after_failures",
+    "start": 1791031244,
+    "type": "compromised_account",
+    "user": "tara.brown"
+  },
+  {
+    "actor": "194.131.67.29",
+    "end": 1791056556,
+    "ip": "",
+    "rule": "custom:privileged_account_failures",
+    "start": 1791056500,
+    "type": "privileged_attack",
+    "user": "root"
+  },
+  {
+    "actor": "141.56.52.30",
+    "end": 1791092967,
+    "ip": "141.56.52.30",
+    "rule": "brute_force",
+    "start": 1791090747,
+    "type": "brute_force",
+    "user": "admin"
+  },
+  {
+    "actor": "203.0.113.147",
+    "end": 1791101661,
+    "ip": "203.0.113.147",
+    "rule": "blacklisted_ip",
+    "start": 1791101479,
+    "type": "blacklisted_ip",
+    "user": ""
+  },
+  {
+    "actor": "192.0.2.77",
+    "end": 1791106166,
+    "ip": "192.0.2.77",
+    "rule": "blacklisted_ip",
+    "start": 1791105668,
+    "type": "blacklisted_ip",
+    "user": ""
+  },
+  {
+    "actor": "91.95.122.214",
+    "end": 1791108571,
+    "ip": "",
+    "rule": "custom:privileged_account_failures",
+    "start": 1791108480,
+    "type": "privileged_attack",
+    "user": "admin"
+  },
+  {
+    "actor": "17 IPs",
+    "end": 1791149070,
+    "ip": "",
+    "rule": "distributed_attack",
+    "start": 1791148530,
+    "type": "distributed_attack",
+    "user": "hiro.costa"
+  },
+  {
+    "actor": "45.126.131.13",
+    "end": 1791156514,
+    "ip": "45.126.131.13",
+    "rule": "off_hours_login",
+    "start": 1791156514,
+    "type": "off_hours_login",
+    "user": "carlos.lopez2"
+  },
+  {
+    "actor": "212.150.237.23",
+    "end": 1791156948,
+    "ip": "212.150.237.23",
+    "rule": "brute_force",
+    "start": 1791156746,
+    "type": "brute_force",
+    "user": "ethan.sato"
+  },
+  {
+    "actor": "194.41.225.145",
+    "end": 1791175512,
+    "ip": "194.41.225.145",
+    "rule": "off_hours_login",
+    "start": 1791175512,
+    "type": "off_hours_login",
+    "user": "wei.rao3"
+  },
+  {
+    "actor": "45.51.93.191",
+    "end": 1791200479,
+    "ip": "",
+    "rule": "custom:privileged_account_failures",
+    "start": 1791200378,
+    "type": "privileged_attack",
+    "user": "admin"
+  },
+  {
+    "actor": "21 IPs",
+    "end": 1791211270,
+    "ip": "",
+    "rule": "distributed_attack",
+    "start": 1791210730,
+    "type": "distributed_attack",
+    "user": "aarav.rossi"
+  },
+  {
+    "actor": "203.0.113.76",
+    "end": 1791243961,
+    "ip": "203.0.113.76",
+    "rule": "blacklisted_ip",
+    "start": 1791243814,
+    "type": "blacklisted_ip",
+    "user": ""
+  },
+  {
+    "actor": "203.0.113.241",
+    "end": 1791246691,
+    "ip": "203.0.113.241",
+    "rule": "blacklisted_ip",
+    "start": 1791246003,
+    "type": "blacklisted_ip",
+    "user": ""
+  },
+  {
+    "actor": "25 IPs",
+    "end": 1791257811,
+    "ip": "",
+    "rule": "distributed_attack",
+    "start": 1791257271,
+    "type": "distributed_attack",
+    "user": "mia.wilson"
+  },
+  {
+    "actor": "141.232.145.6",
+    "end": 1791304195,
+    "ip": "141.232.145.6",
+    "rule": "brute_force",
+    "start": 1791303121,
+    "type": "brute_force",
+    "user": "nadia.kowalski"
+  },
+  {
+    "actor": "203.0.113.122",
+    "end": 1791305092,
+    "ip": "203.0.113.122",
+    "rule": "blacklisted_ip",
+    "start": 1791304335,
+    "type": "blacklisted_ip",
+    "user": ""
+  },
+  {
+    "actor": "141.193.132.163",
+    "end": 1791308559,
+    "ip": "141.193.132.163",
+    "rule": "password_spraying",
+    "start": 1791307858,
+    "type": "password_spraying",
+    "user": ""
+  },
+  {
+    "actor": "45.36.21.161",
+    "end": 1791313743,
+    "ip": "",
+    "rule": "custom:privileged_account_failures",
+    "start": 1791313688,
+    "type": "privileged_attack",
+    "user": "admin"
+  },
+  {
+    "actor": "91.71.216.13",
+    "end": 1791374615,
+    "ip": "91.71.216.13",
+    "rule": "brute_force",
+    "start": 1791372758,
+    "type": "brute_force",
+    "user": "admin"
+  },
+  {
+    "actor": "192.0.2.77",
+    "end": 1791388262,
+    "ip": "192.0.2.77",
+    "rule": "blacklisted_ip",
+    "start": 1791387730,
+    "type": "blacklisted_ip",
+    "user": ""
+  },
+  {
+    "actor": "45.176.68.242",
+    "end": 1791396518,
+    "ip": "",
+    "rule": "custom:privileged_account_failures",
+    "start": 1791396428,
+    "type": "privileged_attack",
+    "user": "admin"
+  },
+  {
+    "actor": "212.66.50.66",
+    "end": 1791413374,
+    "ip": "212.66.50.66",
+    "rule": "password_spraying",
+    "start": 1791412348,
+    "type": "password_spraying",
+    "user": ""
+  }
+]

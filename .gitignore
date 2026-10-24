@@ -1,0 +1,4 @@
+build/
+*.db
+*.db-journal
+loginguard_bench.csv

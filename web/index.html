@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoginGuard</title>
+  <meta name="description" content="Authentication log analysis: suspicious login activity, risk scores and incidents.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#alerts-heading">Skip to alerts</a>
+
+  <header class="masthead">
+    <div class="wrap masthead-row">
+      <div>
+        <h1>LoginGuard</h1>
+        <p id="run-info" class="muted">Loading analysis…</p>
+      </div>
+      <p class="muted tz-note">All times are UTC</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="fatal" class="notice" role="alert" hidden></div>
+
+    <!-- Overview: plain typographic figures; the severity counts are also filters -->
+    <section aria-label="Overview" class="overview">
+      <dl id="figures" class="figures"></dl>
+      <div id="severity-filter" class="sev-filter" role="group" aria-label="Filter alerts by severity"></div>
+    </section>
+
+    <!-- Hero: failed logins over time with incidents pinned to the timeline -->
+    <section aria-labelledby="timeline-heading" class="panel hero">
+      <div class="panel-head">
+        <div>
+          <h2 id="timeline-heading">Failed logins over time</h2>
+          <p class="muted">Dots mark incidents, coloured by the worst severity in that period. Select a period to filter the alerts below.</p>
+        </div>
+        <label class="inline-field">Group by
+          <select id="bucket-select">
+            <option value="3600">Hour</option>
+            <option value="21600">6 hours</option>
+            <option value="86400">Day</option>
+          </select>
+        </label>
+      </div>
+      <div id="timeline" class="chart-box" role="group" aria-label="Chart of failed logins over time"></div>
+    </section>
+
+    <div class="layout">
+      <!-- Alerts -->
+      <section aria-labelledby="alerts-heading" class="panel alerts-panel">
+        <div class="panel-head">
+          <h2 id="alerts-heading">Alerts</h2>
+          <p id="result-count" class="muted" aria-live="polite"></p>
+        </div>
+
+        <form id="filters" class="filters" autocomplete="off">
+          <label class="field grow">Search
+            <input id="q" type="search" placeholder="Account, IP address or rule" maxlength="100">
+          </label>
+          <label class="field">Rule
+            <select id="rule-select"><option value="">All rules</option></select>
+          </label>
+          <label class="field">Minimum score <output id="min-score-out">0</output>
+            <input id="min-score" type="range" min="0" max="100" step="5" value="0">
+          </label>
+          <button type="button" id="clear-filters" class="btn-quiet">Clear filters</button>
+        </form>
+        <div id="active-filters" class="chips" aria-label="Active filters"></div>
+
+        <div class="table-scroll">
+          <table class="alerts">
+            <thead>
+              <tr>
+                <th scope="col" data-sort="severity" class="col-sev">Severity</th>
+                <th scope="col" data-sort="score" class="col-score">Score</th>
+                <th scope="col" data-sort="rule">What happened</th>
+                <th scope="col" data-sort="username" class="hide-md">Account</th>
+                <th scope="col" data-sort="ip" class="hide-md">IP address</th>
+                <th scope="col" data-sort="events" class="num hide-sm">Events</th>
+                <th scope="col" data-sort="ts" class="col-time">First seen</th>
+              </tr>
+            </thead>
+            <tbody id="alert-rows"></tbody>
+          </table>
+        </div>
+        <nav class="pager" aria-label="Alert pages">
+          <button type="button" id="prev" class="btn">Previous</button>
+          <span id="page-info" class="muted"></span>
+          <button type="button" id="next" class="btn">Next</button>
+        </nav>
+      </section>
+
+      <!-- Context -->
+      <aside class="side" aria-label="Context">
+        <section class="panel">
+          <h2>Riskiest IP addresses</h2>
+          <p class="muted small">Ranked by the sum of their alert scores.</p>
+          <ol id="risk-ips" class="rank"></ol>
+        </section>
+        <section class="panel">
+          <h2>Riskiest accounts</h2>
+          <ol id="risk-users" class="rank"></ol>
+        </section>
+        <section class="panel">
+          <h2>Alerts by rule</h2>
+          <ul id="rules" class="bars"></ul>
+        </section>
+        <section class="panel">
+          <h2>Failed logins by hour of day</h2>
+          <div id="hours" class="chart-box small" role="img" aria-label="Failed logins by hour of day"></div>
+        </section>
+        <section class="panel">
+          <h2>Campaigns</h2>
+          <p class="muted small">Alerts linked through a shared account or public IP address.</p>
+          <ol id="campaigns" class="campaigns"></ol>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="wrap foot muted">
+    <p id="config-note"></p>
+  </footer>
+
+  <div id="scrim" hidden></div>
+  <aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <div class="drawer-head">
+      <h2 id="drawer-title">Alert</h2>
+      <button type="button" id="drawer-close" class="btn-quiet">Close</button>
+    </div>
+    <div id="drawer-body"></div>
+  </aside>
+</body>
+</html>
